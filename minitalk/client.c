@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 13:09:08 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/02 17:00:05 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:06:01 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	send_signal(int pid, unsigned char character)
 {
-	int				i;
+	int				cnt_bit;
 	unsigned char	temp_char;
 
-	i = 8;
+	cnt_bit = 8;
 	temp_char = character;// copie le char dans une variable temporaire
-	while (i > 0)
+	while (cnt_bit > 0)
 	{
-		i--;
-		temp_char = character >> i;// decale a droite pour obtenir le bit a la pos i 
+		cnt_bit--;
+		temp_char = character >> cnt_bit;// decale a droite pour obtenir le bit a la pos cnt_bit
 		if (temp_char % 2 == 0)// verif si le bit a pos i est 0 ou 1
 			kill(pid, SIGUSR2);
 		else
@@ -47,5 +47,6 @@ int	main(int argc, char *argv[])
 	str = argv[2];
 	while (str[i])
 		send_signal(pid_client, (unsigned char) str[i++]);
+	send_signal(pid_client, '\n');
 	exit (EXIT_SUCCESS);
 }
