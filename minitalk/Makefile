@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 18:49:36 by mlaffita          #+#    #+#              #
-#    Updated: 2025/01/26 18:51:15 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/02/02 14:53:31 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ INCLUDE = -I include
 
 RM = rm -f 
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -Wall -Wextra -Werror
 
 all: $(LIBFT) $(PRINTF) $(NAME_CLIENT) $(NAME_SERVER) 
 
